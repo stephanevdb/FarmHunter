@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Farmhunter.FarmHunter
+namespace Farmhunter.GameObjects
 {
     internal interface IGameObject
     {

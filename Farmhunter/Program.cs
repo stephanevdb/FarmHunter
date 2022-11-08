@@ -1,3 +1,3 @@
 ﻿
-using var game = new Farmhunter.FarmHunter();
+using var game = new Farmhunter.Game();
 game.Run();
