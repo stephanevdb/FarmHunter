@@ -13,13 +13,13 @@ namespace Farmhunter.GameObjects
     {
         private Texture2D _foxTexture;
         private Vector2 position;
-        Animation animation;
+        //Animation animation;
 
         public Fox(Texture2D foxTexture)
         {
             this._foxTexture = foxTexture;
-            animation = new Animation();
-            animation.
+            //animation = new Animation();
+            
         }
         public void Update(GameTime gameTime)
         {
