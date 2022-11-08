@@ -4,12 +4,12 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Farmhunter
 {
-    public class Game1 : Game
+    public class FarmHunter : Game
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
-        public Game1()
+        public FarmHunter()
         {
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
