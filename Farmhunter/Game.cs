@@ -11,7 +11,8 @@ namespace Farmhunter
         private SpriteBatch _spriteBatch;
         private Texture2D _foxTexture;
         private Fox fox;
-
+        private Rectangle _spriteRectangle;
+        private int x = 1;
         public Game()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -22,7 +23,7 @@ namespace Farmhunter
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-
+            _spriteRectangle = new Rectangle(60*x, 0, 60, 60);
             base.Initialize();
             fox = new Fox(_foxTexture);
         }
@@ -38,7 +39,9 @@ namespace Farmhunter
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-
+            x++;
+            x=x%8;
+            _spriteRectangle = new Rectangle(60*x, 0, 60, 60);
             // TODO: Add your update logic here
 
             base.Update(gameTime);
@@ -50,8 +53,9 @@ namespace Farmhunter
 
             // TODO: Add your drawing code here
             _spriteBatch.Begin();
-            _spriteBatch.Draw(_foxTexture, new Vector2(100, 100), Color.White);
+            _spriteBatch.Draw(_foxTexture, new Vector2(100, 100), _spriteRectangle, Color.White);
             _spriteBatch.End();
+            
             base.Draw(gameTime);
         }
     }

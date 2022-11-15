@@ -28,6 +28,7 @@ namespace Farmhunter.GameObjects
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            
             throw new NotImplementedException();
         }
     }
