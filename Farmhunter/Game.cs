@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Farmhunter.GameObjects;
 
+
 namespace Farmhunter
 {
     public class Game : Microsoft.Xna.Framework.Game
@@ -39,9 +40,8 @@ namespace Farmhunter
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-            x++;
-            x=x%8;
-            _spriteRectangle = new Rectangle(60*x, 0, 60, 60);
+            
+            fox.Update(gameTime);
             // TODO: Add your update logic here
 
             base.Update(gameTime);
@@ -53,7 +53,7 @@ namespace Farmhunter
 
             // TODO: Add your drawing code here
             _spriteBatch.Begin();
-            _spriteBatch.Draw(_foxTexture, new Vector2(100, 100), _spriteRectangle, Color.White);
+            fox.Draw(_spriteBatch);
             _spriteBatch.End();
             
             base.Draw(gameTime);
