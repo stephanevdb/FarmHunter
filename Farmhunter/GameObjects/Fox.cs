@@ -13,6 +13,7 @@ namespace Farmhunter.GameObjects
     {
         private Texture2D _foxTexture;
         private Vector2 position;
+        private readonly Dictionary<string, Animation> _animations;
         private Animation _currentAnimation;
         private Rectangle _spriteRectangle;
         private int x = 1;
@@ -21,7 +22,8 @@ namespace Farmhunter.GameObjects
         public Fox(Texture2D foxTexture)
         {
             this._foxTexture = foxTexture;
-            //animation = new Animation();
+            this._animations = new Dictionary<string, Animation>();
+            this._animations.Add("Idle", new Animation());//animation = new Animation();
             
         }
         public void Update(GameTime gameTime)
