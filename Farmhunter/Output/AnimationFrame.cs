@@ -4,10 +4,11 @@ namespace Farmhunter.Output
 {
     public class AnimationFrame
     {
-        public Rectangle SourceRectangle { get; set; }
+        private Rectangle _sourceRectangle;
+        public Rectangle SourceRectangle { get => this._sourceRectangle; set => this._sourceRectangle = value; }
         public AnimationFrame(Rectangle sourceRectangle)
         {
-            SourceRectangle = sourceRectangle;
+            this._sourceRectangle = sourceRectangle;
         }
     }
 }

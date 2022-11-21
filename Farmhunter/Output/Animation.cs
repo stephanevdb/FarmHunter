@@ -6,27 +6,37 @@ namespace Farmhunter.Output
     public class Animation
     {
         public AnimationFrame CurrentFrame { get; set; }
-        private List<AnimationFrame> frames;
-        private int counter;
+        private List<AnimationFrame> _frames;
+        
 
-        public Animation()
+        private int _counter;
+        private double _frameIndex;
+        private int fps;
+
+        public Animation(int fps)
         {
-            this.frames = new List<AnimationFrame>();
+            _frames = new List<AnimationFrame>();
+            this.fps = fps;
         }
-
-        public void AddFrame(AnimationFrame frame)
+        public void AddFrame(AnimationFrame aframe)
         {
-            frames.Add(frame);
-            CurrentFrame = frames[0];
+            _frames.Add(aframe);
+            CurrentFrame = _frames[0];
         }
-        public void update(GameTime gameTime)
+        public void Update(GameTime gameTime)
         {
-            CurrentFrame = frames[counter];
-            counter++;
+            CurrentFrame = _frames[_counter];
+            _frameIndex += gameTime.ElapsedGameTime.TotalSeconds;
 
-            if (counter >= frames.Count)
+            if (_frameIndex >= 1d/ fps)
             {
-                counter = 0;
+                _frameIndex = 0;
+                _counter++;
+            }
+
+            if (_counter >= _frames.Count)
+            {
+                _counter = 0;
             }
         }
 
