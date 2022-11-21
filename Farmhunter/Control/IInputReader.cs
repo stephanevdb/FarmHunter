@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Farmhunter.Control
 {
-    internal interface IInputReader
+    public interface IInputReader
     {
         Vector2 InputReader();
     }

@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Farmhunter.GameObjects;
-
+using Farmhunter.Control;
 
 namespace Farmhunter
 {
@@ -26,7 +26,7 @@ namespace Farmhunter
             // TODO: Add your initialization logic here
             _spriteRectangle = new Rectangle(60*x, 0, 60, 60);
             base.Initialize();
-            fox = new Fox(_foxTexture);
+            fox = new Fox(_foxTexture, new KeyboardReader());
         }
 
         protected override void LoadContent()

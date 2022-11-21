@@ -14,6 +14,20 @@ namespace Farmhunter.Control
         {
             KeyboardState state = Keyboard.GetState();
             Vector2 direction = Vector2.Zero;
+            GamePadCapabilities capabilities = GamePad.GetCapabilities(PlayerIndex.One);
+            if (capabilities.HasDPadDownButton)
+            {
+                GamePadState controllerState = GamePad.GetState(PlayerIndex.One);
+                if (controllerState.IsButtonDown(Buttons.DPadLeft) || controllerState.ThumbSticks.Left.X < 0)
+                {
+                    direction.X -= 1;
+                }
+                if (controllerState.IsButtonDown(Buttons.DPadRight) || controllerState.ThumbSticks.Left.X > 0)
+                {
+                    direction.X += 1;
+                }
+
+            }
             if (state.IsKeyDown(Keys.Left))
             {
                 direction.X -= 1;
