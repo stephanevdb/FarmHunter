@@ -14,7 +14,6 @@ namespace Farmhunter
         private Texture2D _foxWalkTexture;
         private Texture2D _foxSitTexture;
         private Fox fox;
-        private Rectangle _spriteRectangle;
         private int x = 1;
         public Game()
         {
@@ -26,7 +25,7 @@ namespace Farmhunter
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            _spriteRectangle = new Rectangle(60*x, 0, 60, 60);
+         
             base.Initialize();
             fox = new Fox(_foxIdleTexture,_foxWalkTexture,_foxSitTexture ,new KeyboardReader());
         }
@@ -60,6 +59,7 @@ namespace Farmhunter
             _spriteBatch.Begin();
             fox.Draw(_spriteBatch);
             _spriteBatch.End();
+   
             
             base.Draw(gameTime);
         }
