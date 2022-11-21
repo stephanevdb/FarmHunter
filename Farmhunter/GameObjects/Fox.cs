@@ -14,25 +14,31 @@ namespace Farmhunter.GameObjects
     public class Fox : IGameObject
     {
         SpriteEffects s = SpriteEffects.None;
+        //textures
         Texture2D _foxIdleTexture;
         Texture2D _foxWalkTexture;
         Texture2D _foxSitTexture;
+        Texture2D _foxCrouchTexture;
+        //animations
         Animation _foxIdleAnimation;
         Animation _foxWalkAnimation;
         Animation _foxSitAnimation;
+        Animation _foxCrouchAnimation;
         TimeSpan _foxIdleTime = TimeSpan.Zero;
         private Vector2 _foxPosition = new Vector2(100, 100);
         private Vector2 _foxVelocity = new Vector2(0, 0);
+        private Vector2 _foxSpeed = new Vector2(3, 0);
         private double gravity = 9.8;
         public IInputReader _inputReader;
         private Vector2 screenDimensions = new Vector2(800, 480);
         
             
-        public Fox(Texture2D foxIdleTexture, Texture2D foxWalkTexture , Texture2D foxSitTexture, IInputReader inputReader)
+        public Fox(Texture2D foxIdleTexture, Texture2D foxWalkTexture , Texture2D foxSitTexture, Texture2D foxCrouchTexture , IInputReader inputReader)
         {
             _foxIdleTexture = foxIdleTexture; 
             _foxWalkTexture = foxWalkTexture;
             _foxSitTexture = foxSitTexture;
+            _foxCrouchTexture = foxCrouchTexture;
             _inputReader = inputReader;
             // Idle animation
             _foxIdleAnimation = new Animation(15);
@@ -55,6 +61,13 @@ namespace Farmhunter.GameObjects
             {
                 _foxSitAnimation.AddFrame(new AnimationFrame(new Rectangle(0+(i*60),0, 60,60)));
             }
+            // crouch animation
+            _foxCrouchAnimation = new Animation(15);
+            int crouchFramecount = 8;
+            for (int i = 0; i < crouchFramecount; i++)
+            {
+                _foxCrouchAnimation.AddFrame(new AnimationFrame(new Rectangle(0+(i*60),0, 60,60)));
+            }
 
         }
 
@@ -67,7 +80,7 @@ namespace Farmhunter.GameObjects
                 if (_foxPosition.X > 0 || _foxPosition.X < screenDimensions.X-60)
                 {
                     s = SpriteEffects.None;
-                    _foxPosition.X += 2;
+                    _foxPosition.X += _foxSpeed.X;
                 }
                 
             }
@@ -76,7 +89,7 @@ namespace Farmhunter.GameObjects
                 if (_foxPosition.X > 0 || _foxPosition.X < screenDimensions.X)
                 {
                     s = SpriteEffects.FlipHorizontally;
-                    _foxPosition.X -= 2;
+                    _foxPosition.X -= _foxSpeed.X;
                 }
                 
             }
@@ -114,6 +127,11 @@ namespace Farmhunter.GameObjects
             {
                 foxFinalAnimation = _foxSitAnimation;
                 foxFinalTexture = _foxSitTexture;
+            }
+            if (direction2.Y < 0)
+            {
+                foxFinalAnimation = _foxCrouchAnimation;
+                foxFinalTexture = _foxCrouchTexture;
             }
             
             
