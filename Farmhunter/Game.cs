@@ -10,7 +10,9 @@ namespace Farmhunter
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
-        private Texture2D _foxTexture;
+        private Texture2D _foxIdleTexture;
+        private Texture2D _foxWalkTexture;
+        private Texture2D _foxSitTexture;
         private Fox fox;
         private Rectangle _spriteRectangle;
         private int x = 1;
@@ -26,13 +28,16 @@ namespace Farmhunter
             // TODO: Add your initialization logic here
             _spriteRectangle = new Rectangle(60*x, 0, 60, 60);
             base.Initialize();
-            fox = new Fox(_foxTexture, new KeyboardReader());
+            fox = new Fox(_foxIdleTexture,_foxWalkTexture,_foxSitTexture ,new KeyboardReader());
         }
 
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            _foxTexture = Content.Load<Texture2D>("Fox/fox_idle_strip8");
+            _foxIdleTexture = Content.Load<Texture2D>("Fox/fox_idle_strip8");
+            _foxWalkTexture = Content.Load<Texture2D>("Fox/fox_run_strip8");
+            _foxSitTexture = Content.Load<Texture2D>("Fox/fox_sit02_strip24");
+            
             // TODO: use this.Content to load your game content here
         }
 
