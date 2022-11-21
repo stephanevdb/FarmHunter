@@ -22,51 +22,51 @@ namespace Farmhunter.Control
                 {
                     if (controllerState.ThumbSticks.Left.X == 0)
                     {
-                        direction.X -= 100;
+                        direction.X -= 1;
                     }
                     else
                     {
-                        direction.X -= controllerState.ThumbSticks.Left.X*100;
+                        direction.X -= 1;
                     }
                 }
                 if (controllerState.IsButtonDown(Buttons.DPadRight) || controllerState.ThumbSticks.Left.X > 0)
                 {
                     if (controllerState.ThumbSticks.Left.X == 0)
                     {
-                        direction.X += 100;
+                        direction.X += 1;
                     }
                     else
                     {
-                        direction.X += controllerState.ThumbSticks.Left.X*100;
+                        direction.X += 1;
                     }
                 }
 
                 if (controllerState.IsButtonDown(Buttons.RightShoulder))
                 {
-                    direction.Y -= 100;
+                    direction.Y -= 1;
                 }
                 if (controllerState.IsButtonDown(Buttons.A))
                 {
-                    direction.Y += 100;
+                    direction.Y += 1;
                 }
             }
             if (state.IsKeyDown(Keys.Left))
             {
-                direction.X -= 100;
+                direction.X -= 1;
             }
             if (state.IsKeyDown(Keys.Right))
             {
-                direction.X += 100;
+                direction.X += 1;
             }
 
             if (state.IsKeyDown(Keys.Space))
             {
-                direction.Y += 100;
+                direction.Y += 1;
             }
 
             if (state.IsKeyDown(Keys.C))
             {
-                direction.Y -= 100;
+                direction.Y -= 1;
             }
             return direction;
         }
