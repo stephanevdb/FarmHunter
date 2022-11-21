@@ -15,7 +15,6 @@ namespace Farmhunter
         private Texture2D _foxSitTexture;
         private Texture2D _foxCrouchTexture;
         private Fox fox;
-        private int x = 1;
         public Game()
         {
             _graphics = new GraphicsDeviceManager(this);
