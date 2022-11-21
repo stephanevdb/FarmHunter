@@ -13,6 +13,7 @@ namespace Farmhunter.GameObjects
 {
     public class Fox : IGameObject
     {
+        SpriteEffects s = SpriteEffects.None;
         Texture2D _foxIdleTexture;
         Texture2D _foxWalkTexture;
         Texture2D _foxSitTexture;
@@ -65,6 +66,7 @@ namespace Farmhunter.GameObjects
             {
                 if (_foxPosition.X > 0 || _foxPosition.X < screenDimensions.X-60)
                 {
+                    s = SpriteEffects.None;
                     _foxPosition.X += 2;
                 }
                 
@@ -73,6 +75,7 @@ namespace Farmhunter.GameObjects
             {
                 if (_foxPosition.X > 0 || _foxPosition.X < screenDimensions.X)
                 {
+                    s = SpriteEffects.FlipHorizontally;
                     _foxPosition.X -= 2;
                 }
                 
@@ -115,7 +118,7 @@ namespace Farmhunter.GameObjects
             
             
             
-            spriteBatch.Draw(foxFinalTexture, _foxPosition , foxFinalAnimation.CurrentFrame.SourceRectangle, Color.White);
+            spriteBatch.Draw(foxFinalTexture, _foxPosition , foxFinalAnimation.CurrentFrame.SourceRectangle, Color.White, 0f, Vector2.Zero, 1f, s, 0f);
             
         }
     }
