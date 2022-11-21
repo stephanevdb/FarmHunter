@@ -31,6 +31,10 @@ namespace Farmhunter.Control
                 {
                     direction.Y -= 1;
                 }
+                if (controllerState.IsButtonDown(Buttons.A))
+                {
+                    direction.Y += 1;
+                }
             }
             if (state.IsKeyDown(Keys.Left))
             {
@@ -39,6 +43,11 @@ namespace Farmhunter.Control
             if (state.IsKeyDown(Keys.Right))
             {
                 direction.X += 1;
+            }
+
+            if (state.IsKeyDown(Keys.Space))
+            {
+                
             }
 
             if (state.IsKeyDown(Keys.C))

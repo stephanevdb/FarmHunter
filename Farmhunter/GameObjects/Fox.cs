@@ -41,7 +41,7 @@ namespace Farmhunter.GameObjects
             _foxCrouchTexture = foxCrouchTexture;
             _inputReader = inputReader;
             // Idle animation
-            _foxIdleAnimation = new Animation(15);
+            _foxIdleAnimation = new Animation(10);
             int idleFramecount = 8;
             for (int i = 0; i < idleFramecount; i++)
             {
@@ -55,14 +55,14 @@ namespace Farmhunter.GameObjects
                 _foxWalkAnimation.AddFrame(new AnimationFrame(new Rectangle(0+(i*60),0, 60,60)));
             }
             // Sit animation
-            _foxSitAnimation = new Animation(15);
+            _foxSitAnimation = new Animation(8);
             int sitFramecount = 24;
             for (int i = 0; i < sitFramecount; i++)
             {
                 _foxSitAnimation.AddFrame(new AnimationFrame(new Rectangle(0+(i*60),0, 60,60)));
             }
             // crouch animation
-            _foxCrouchAnimation = new Animation(15);
+            _foxCrouchAnimation = new Animation(10);
             int crouchFramecount = 8;
             for (int i = 0; i < crouchFramecount; i++)
             {
@@ -102,7 +102,7 @@ namespace Farmhunter.GameObjects
            _foxWalkAnimation.Update(gameTime);
            _foxSitAnimation.Update(gameTime);
            Vector2 direction3 = _inputReader.InputReader();
-           if (direction3.X == 0)
+           if (direction3.X == 0 )
            {
                _foxIdleTime += gameTime.ElapsedGameTime;
            }
