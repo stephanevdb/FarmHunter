@@ -15,7 +15,9 @@ namespace Farmhunter
         private Texture2D _foxWalkTexture;
         private Texture2D _foxSitTexture;
         private Texture2D _foxCrouchTexture;
+        private Texture2D _MapTexture;
         private Fox fox;
+        private Map _map;
         
         public Game()
         {
@@ -39,7 +41,7 @@ namespace Farmhunter
             _foxWalkTexture = Content.Load<Texture2D>("Fox/fox_run_strip8");
             _foxSitTexture = Content.Load<Texture2D>("Fox/fox_sit02_strip24");
             _foxCrouchTexture = Content.Load<Texture2D>("Fox/fox_crouch_strip8");
-            
+            _map = new Map(16,30,"Content/test1.csv",Content.Load<Texture2D>("Map/Tileset"));
             
         }
 
@@ -61,6 +63,7 @@ namespace Farmhunter
             
             _spriteBatch.Begin();
             fox.Draw(_spriteBatch);
+            _map.Draw(_spriteBatch);
             _spriteBatch.End();
    
             
