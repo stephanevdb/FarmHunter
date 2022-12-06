@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Farmhunter.GameObjects;
+using Farmhunter.GameObjects.TileMaps;
 using Farmhunter.Control;
 
 namespace Farmhunter
@@ -15,6 +16,7 @@ namespace Farmhunter
         private Texture2D _foxSitTexture;
         private Texture2D _foxCrouchTexture;
         private Fox fox;
+        
         public Game()
         {
             _graphics = new GraphicsDeviceManager(this);

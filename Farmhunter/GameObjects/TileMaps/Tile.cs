@@ -1,14 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Farmhunter.Control;
-using Farmhunter.Output;
 
-namespace Farmhunter.GameObjects;
+namespace Farmhunter.GameObjects.TileMaps;
 
 public class Tile : IGameObject
 {
