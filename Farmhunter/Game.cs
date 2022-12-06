@@ -24,7 +24,7 @@ namespace Farmhunter
 
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
+            
          
             base.Initialize();
             fox = new Fox(_foxIdleTexture,_foxWalkTexture,_foxSitTexture ,_foxCrouchTexture, new KeyboardReader());
@@ -38,7 +38,7 @@ namespace Farmhunter
             _foxSitTexture = Content.Load<Texture2D>("Fox/fox_sit02_strip24");
             _foxCrouchTexture = Content.Load<Texture2D>("Fox/fox_crouch_strip8");
             
-            // TODO: use this.Content to load your game content here
+            
         }
 
         protected override void Update(GameTime gameTime)
@@ -47,7 +47,7 @@ namespace Farmhunter
                 Exit();
             
             fox.Update(gameTime);
-            // TODO: Add your update logic here
+            
 
             base.Update(gameTime);
         }
@@ -56,7 +56,7 @@ namespace Farmhunter
         {
             GraphicsDevice.Clear(Color.HotPink);
 
-            // TODO: Add your drawing code here
+            
             _spriteBatch.Begin();
             fox.Draw(_spriteBatch);
             _spriteBatch.End();
